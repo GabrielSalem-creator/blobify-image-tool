@@ -45,8 +45,8 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect, isLoading }) => {
   return (
     <div 
       className={cn(
-        "relative cursor-pointer transition-all duration-300 h-48 rounded-2xl border-2 border-dashed flex flex-col items-center justify-center p-6",
-        isDragging ? "border-primary bg-primary/5 scale-[1.02]" : "border-muted-foreground/20 hover:border-muted-foreground/40",
+        "relative cursor-pointer transition-all duration-300 h-56 rounded-2xl border-2 border-dashed flex flex-col items-center justify-center p-6",
+        isDragging ? "border-primary bg-primary/5 scale-[1.02] shadow-lg" : "border-muted-foreground/20 hover:border-primary/40 hover:bg-primary/5",
         isLoading && "opacity-50 pointer-events-none"
       )}
       onClick={handleClick}
@@ -62,11 +62,11 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect, isLoading }) => {
         accept="image/*"
       />
       
-      <div className="bg-secondary/80 rounded-full p-3 mb-4">
-        <Image size={24} className="text-primary" />
+      <div className="bg-primary/10 rounded-full p-4 mb-4">
+        <Image size={32} className="text-primary" />
       </div>
       
-      <p className="text-md font-medium mb-1">
+      <p className="text-lg font-medium mb-1">
         Drag & drop an image here
       </p>
       
@@ -76,7 +76,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect, isLoading }) => {
       
       <Button 
         variant="outline" 
-        className="button-highlight"
+        className="button-highlight border-primary/20 hover:border-primary/40 hover:bg-primary/10"
         size="sm"
         disabled={isLoading}
       >

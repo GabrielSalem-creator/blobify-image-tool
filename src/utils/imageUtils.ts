@@ -14,37 +14,6 @@ export const fileToBlob = (file: File): Promise<string> => {
 };
 
 /**
- * Loads an image from a URL and converts it to a blob URL
- */
-export const urlToBlob = (url: string): Promise<string> => {
-  return new Promise((resolve, reject) => {
-    try {
-      const xhr = new XMLHttpRequest();
-      xhr.open("GET", url);
-      xhr.responseType = "blob";
-      
-      xhr.onerror = () => {
-        reject(new Error("Network error occurred while fetching the image."));
-      };
-      
-      xhr.onload = () => {
-        if (xhr.status === 200) {
-          const blob = xhr.response;
-          const blobUrl = URL.createObjectURL(blob);
-          resolve(blobUrl);
-        } else {
-          reject(new Error(`Failed to load image: ${xhr.statusText}`));
-        }
-      };
-      
-      xhr.send();
-    } catch (error) {
-      reject(error);
-    }
-  });
-};
-
-/**
  * Validates if a string is a valid URL
  */
 export const isValidUrl = (urlString: string): boolean => {
